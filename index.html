@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>DriveDeal - Flutter & Dart Mobile App</title>
+    <meta name="description" content="DriveDeal Flutter mobile application for buying, renting and selling cars." />
+    <meta property="og:title" content="DriveDeal - Flutter & Dart Mobile App" />
+    <meta property="og:description" content="DriveDeal Flutter mobile application for buying, renting and selling cars." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body { font-family: 'Plus Jakarta Sans', 'Cairo', sans-serif; }
+      pre, code { font-family: 'JetBrains Mono', monospace; }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <!-- Header -->
+      <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-blue-500/20 text-white font-black text-2xl">
+            DD
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-2xl font-bold tracking-tight text-white">DriveDeal</h1>
+              <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs px-2.5 py-0.5 rounded-full font-semibold">Flutter & Dart 3.0</span>
+            </div>
+            <p class="text-sm text-slate-400 mt-0.5">Pure Flutter Marketplace & Car Rental Mobile Application</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Clean Flutter Architecture Ready
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Overview Grid -->
+      <main class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+        <!-- Left: Project Structure & Screens List -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6">
+            <h2 class="text-lg font-bold text-white flex items-center gap-2 mb-4">
+              <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+              Flutter Project Architecture (/lib)
+            </h2>
+            <div class="space-y-3 text-sm">
+              <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-start gap-3">
+                <span class="text-blue-400 font-mono font-bold text-xs bg-blue-950 px-2 py-1 rounded">main.dart</span>
+                <div>
+                  <p class="font-medium text-slate-200">Main Application Entry</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Initializes Material 3 theme, Android status bar styling, and root navigation.</p>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-start gap-3">
+                <span class="text-indigo-400 font-mono font-bold text-xs bg-indigo-950 px-2 py-1 rounded">screens/</span>
+                <div class="space-y-1">
+                  <p class="font-medium text-slate-200">11 Full-Featured Screens</p>
+                  <div class="flex flex-wrap gap-1.5 pt-1">
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">home_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">search_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">car_details_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">sell_car_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">messages_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">chat_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">saved_cars_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">notifications_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">my_listings_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">profile_screen.dart</span>
+                    <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">onboarding_screen.dart</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-start gap-3">
+                <span class="text-cyan-400 font-mono font-bold text-xs bg-cyan-950 px-2 py-1 rounded">widgets/</span>
+                <div>
+                  <p class="font-medium text-slate-200">Reusable Material 3 UI Components</p>
+                  <p class="text-xs text-slate-400 mt-0.5">CarCard (horizontal & vertical), SpecBadge, BrandSelector, CategoryChips, OfferBottomSheet.</p>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 flex items-start gap-3">
+                <span class="text-amber-400 font-mono font-bold text-xs bg-amber-950 px-2 py-1 rounded">models/ & data/</span>
+                <div>
+                  <p class="font-medium text-slate-200">Rich Car & Marketplace Models</p>
+                  <p class="text-xs text-slate-400 mt-0.5">Typed models for Cars, Dealers, Conversations, Notifications, User Profiles, and Mock Data.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Highlights -->
+          <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6">
+            <h2 class="text-lg font-bold text-white mb-4">Core Flutter Capabilities</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+              <div class="p-3 rounded-xl bg-slate-950/50 border border-slate-800/60">
+                <div class="font-semibold text-blue-400">⚡ Buy & Rent Dual Mode</div>
+                <div class="text-xs text-slate-400 mt-1">Instant price calculation between full cash purchase and daily rental rate.</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/50 border border-slate-800/60">
+                <div class="font-semibold text-indigo-400">📊 EMI Loan Calculator</div>
+                <div class="text-xs text-slate-400 mt-1">Interactive tenure & down payment slider calculating monthly installments.</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/50 border border-slate-800/60">
+                <div class="font-semibold text-purple-400">💬 Live Dealer Chat & Offers</div>
+                <div class="text-xs text-slate-400 mt-1">Structured price negotiation modal and customized offer bubbles in chat.</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/50 border border-slate-800/60">
+                <div class="font-semibold text-emerald-400">📝 4-Step Listing Wizard</div>
+                <div class="text-xs text-slate-400 mt-1">Guided car selling flow with automated instant certification.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Mobile Device Mockup Visual -->
+        <div class="lg:col-span-5 flex flex-col items-center">
+          <div class="w-full max-w-[340px] bg-slate-900 rounded-[44px] p-3 shadow-2xl border-4 border-slate-800 shadow-blue-500/10">
+            <!-- Mobile Screen -->
+            <div class="bg-white text-slate-900 rounded-[36px] overflow-hidden flex flex-col h-[620px] relative shadow-inner">
+              <!-- Status Bar -->
+              <div class="h-8 bg-white flex items-center justify-between px-6 pt-2 text-[11px] font-bold text-slate-800">
+                <span>9:41</span>
+                <div class="w-16 h-4 bg-slate-900 rounded-full mx-auto"></div>
+                <div class="flex items-center gap-1">
+                  <span>5G</span>
+                  <div class="w-4 h-2 border border-slate-800 rounded-sm"></div>
+                </div>
+              </div>
+
+              <!-- Top Bar -->
+              <div class="p-4 flex items-center justify-between border-b border-slate-100">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs">
+                    AS
+                  </div>
+                  <div>
+                    <div class="text-[10px] text-slate-400 font-medium">Location</div>
+                    <div class="text-xs font-bold text-slate-800">Dubai, UAE 📍</div>
+                  </div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 relative text-xs">
+                  🔔
+                  <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+              </div>
+
+              <!-- Tab Toggle Buy / Rent -->
+              <div class="p-3">
+                <div class="p-1 bg-slate-100 rounded-xl flex">
+                  <div class="flex-1 py-1.5 text-center text-xs font-bold bg-white rounded-lg shadow-sm text-blue-600">Buy Cars</div>
+                  <div class="flex-1 py-1.5 text-center text-xs font-bold text-slate-500">Rent Cars</div>
+                </div>
+              </div>
+
+              <!-- Car Card Preview -->
+              <div class="px-3 flex-1 overflow-y-auto space-y-3">
+                <div class="rounded-2xl border border-slate-100 bg-white overflow-hidden shadow-sm">
+                  <div class="relative h-32 bg-slate-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="BMW" class="w-full h-full object-cover" />
+                    <span class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">Featured</span>
+                    <span class="absolute top-2 right-2 bg-white/90 p-1.5 rounded-full text-xs shadow">❤️</span>
+                  </div>
+                  <div class="p-3">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <div class="font-bold text-sm text-slate-900">BMW M4 Competition</div>
+                        <div class="text-[11px] text-slate-500">2023 • Coupe • 12,000 km</div>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-sm font-extrabold text-blue-600">$84,500</div>
+                        <div class="text-[10px] text-slate-400">$1,350/mo</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-slate-100 bg-white overflow-hidden shadow-sm">
+                  <div class="relative h-32 bg-slate-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Porsche" class="w-full h-full object-cover" />
+                    <span class="absolute top-2 left-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">Verified Dealer</span>
+                    <span class="absolute top-2 right-2 bg-white/90 p-1.5 rounded-full text-xs shadow">🤍</span>
+                  </div>
+                  <div class="p-3">
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <div class="font-bold text-sm text-slate-900">Porsche 911 Carrera S</div>
+                        <div class="text-[11px] text-slate-500">2024 • Sports • 4,500 km</div>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-sm font-extrabold text-blue-600">$128,000</div>
+                        <div class="text-[10px] text-slate-400">$2,050/mo</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Nav Bar -->
+              <div class="h-14 bg-white border-t border-slate-100 flex items-center justify-around px-2 text-xs font-medium text-slate-400">
+                <div class="flex flex-col items-center text-blue-600 font-bold">
+                  <span>🏠</span>
+                  <span class="text-[9px]">Home</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <span>🔍</span>
+                  <span class="text-[9px]">Search</span>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-base shadow-md shadow-blue-500/30">
+                  +
+                </div>
+                <div class="flex flex-col items-center">
+                  <span>💬</span>
+                  <span class="text-[9px]">Inbox</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <span>👤</span>
+                  <span class="text-[9px]">Profile</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500 mt-4 text-center">Flutter Material 3 UI Layout with dynamic components</p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+
+

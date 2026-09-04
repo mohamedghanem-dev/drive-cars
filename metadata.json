@@ -1,0 +1,6 @@
+{
+  "name": "DriveDeal - Car Buy & Rent",
+  "description": "Premium car buying, renting, and selling application based on the DriveDeal Flutter UI design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

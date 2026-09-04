@@ -1,0 +1,89 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # The Android platform folder that ships in this repo used an old
+      # Gradle template (imperative "apply from" style) that is no longer
+      # supported by recent Flutter versions. Force a full, modern
+      # regeneration instead of only filling in missing files.
+      #
+      # IMPORTANT: `flutter create --overwrite` regenerates the whole app
+      # template (including lib/main.dart and pubspec.yaml) even when
+      # --platforms=android is passed. We back up and restore our real
+      # app source so it never gets replaced by the default counter demo.
+      - name: Backup app source
+        run: |
+          cp -r lib /tmp/lib_backup
+          cp pubspec.yaml /tmp/pubspec_backup.yaml
+
+      - name: Regenerate Android platform scaffold (modern Gradle template)
+        run: |
+          rm -rf android
+          flutter create --platforms=android --org com.drivedeal --overwrite .
+
+      - name: Restore app source
+        run: |
+          rm -rf lib
+          cp -r /tmp/lib_backup lib
+          cp /tmp/pubspec_backup.yaml pubspec.yaml
+
+      # Restore our required app id / label / permissions on the freshly
+      # generated AndroidManifest.xml.
+      - name: Apply app manifest settings
+        run: |
+          MANIFEST=android/app/src/main/AndroidManifest.xml
+          sed -i 's/android:label="[^"]*"/android:label="DriveDeal"/' "$MANIFEST"
+          if ! grep -q "android.permission.INTERNET" "$MANIFEST"; then
+            sed -i '0,/<application/s//<uses-permission android:name="android.permission.INTERNET"\/>\n    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"\/>\n    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"\/>\n    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"\/>\n\n    <application/' "$MANIFEST"
+          fi
+
+      # Overwrite the default launcher icon with our brand icon, using a
+      # proper Android Adaptive Icon: a full-bleed background bitmap (our
+      # artwork) + a fully transparent foreground layer. This lets the OS
+      # mask/crop the shape however it wants with no white/black backdrop
+      # ever showing through.
+      - name: Apply app icon
+        run: |
+          for dir in mdpi hdpi xhdpi xxhdpi xxxhdpi; do
+            cp "android_icons/mipmap-$dir/ic_launcher.png" "android/app/src/main/res/mipmap-$dir/ic_launcher.png"
+            cp "android_icons/mipmap-$dir/ic_launcher_background.png" "android/app/src/main/res/mipmap-$dir/ic_launcher_background.png"
+          done
+          mkdir -p android/app/src/main/res/mipmap-anydpi-v26
+          cp android_icons_extra/mipmap-anydpi-v26/ic_launcher.xml android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+
+      - name: Analyze (non-blocking)
+        run: flutter analyze || true
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: drivedeal-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
